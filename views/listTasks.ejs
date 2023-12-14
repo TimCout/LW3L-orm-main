@@ -1,0 +1,38 @@
+<link rel="stylesheet" href="/CSS/style.css">
+<div id="dégradé">
+  <h1>Mohamed Henni</h1>
+  <h2>Wish List</h2>
+  <ul>
+    <% for(tv of wishList) { %>
+      <li><%= tv.Marque %> <%= tv.Taille %>cm <%= tv.Prix %>€<a href="/delete/<%= tv.idtv %>">Delete</a> <a href="/bought/<%= tv.idtv %>">Achetée</a></li>
+    <% } %>
+  </ul>
+
+  <h2>Bought List</h2>
+  <ul>
+    <% for(tv of boughtList) { %>
+      <li><%= tv.Marque %> <%= tv.Taille %>cm <%= tv.Prix %>€<a href="/broken/<%= tv.idtv %>">Casser</a></li>
+    <% } %>
+  </ul>
+
+  <h2>Broken List</h2>
+  <ul>
+    <% for(tv of brokenList) { %>
+      <li><%= tv.Marque %> <%= tv.Taille %>cm <%= tv.Prix %>€<a href="/delete/<%= tv.idtv %>">Retirer</a><br/>
+        Cause: <%= tv.Cause %>
+      </li>
+    <% } %>
+  </ul>
+</div>
+
+
+<form action="/add" method="POST">
+  Marque :
+  <input type="text" name="Marque" value=""><br/>
+  Prix :
+  <input type="text" name="Prix" min="0" value=""><br/>
+  Taille (cm):
+  <input type="text" name="Taille" min="0" max="200" value=""><br/>
+  <input type="submit" name="save" value="Sauver"><br/>
+</form>
+
