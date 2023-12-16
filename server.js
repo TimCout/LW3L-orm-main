@@ -3,6 +3,8 @@ import Television from './models/Task.js';
 
 const app = express();
 app.use(express.urlencoded({ extended: true }));
+//Pour le CSS
+app.use(express.static('public'));
 
 app.get("/", async function(request, response){
   const wishList = await Television.loadMany({Acheter: 0});
@@ -49,5 +51,3 @@ app.post('/break/:id', async function(req, res){
 
 app.listen(4000);
 
-//Pour le CSS
-app.use(express.static('public'));

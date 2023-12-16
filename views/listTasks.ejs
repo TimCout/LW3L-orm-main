@@ -25,6 +25,20 @@
   </ul>
 </div>
 
+<% let result = 0; %>
+<% for(tv of boughtList) { %>
+    <% result += tv.Prix; %>
+<% } %>
+<% let result1 = 0; %>
+<% for(tv of brokenList) { %>
+    <% result1 += tv.Prix; %>
+<% } %>
+<% let resulte = result1 + result; %>
+
+<h3 style="text-align: right;"> Total paiement : <%- resulte %>€ </h3>
+<h3 style="text-align: right;"> Total en bonne état : <span style="color: green;"><%- result %>€</span> </h3>
+<h3 style="text-align: right;"> Argent perdu : <span style="color: red;"> - <%- result1 %>€</span> </h3>
+
 
 <form action="/add" method="POST">
   Marque :
